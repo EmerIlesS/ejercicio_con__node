@@ -1,0 +1,28 @@
+name: Integracion continua (CI)
+
+on: 
+    push: 
+        branches: [ main ]
+    pull_request:
+        branches: [ main ]
+
+jobs: 
+    build_and_test:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout del codigo
+          uses: actions/checkout@v3
+        
+        - name: configurar entorno (nodejs)
+          uses: actions/setup-node@v4
+          with:
+             node-version: '20'
+        - name: instalar dependencias
+          run: npm install
+
+        - name: correr tests
+          run: npm test
+          
+        - name: correr aplicacion
+          run: npm start
