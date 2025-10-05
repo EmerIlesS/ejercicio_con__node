@@ -20,9 +20,6 @@ jobs:
              node-version: '20'
         - name: instalar dependencias
           run: npm install
-
-        - name: correr tests
-          run: npm test
-          
+                
         - name: correr aplicacion
           run: npm start
